@@ -10,12 +10,18 @@ const App = () => {
       (height / 100) ** 2
     ).toFixed(1)}`;
   };
+  const reset = (e) => {
+    e.preventDefault();
+    document.getElementById("bmi").innerHTML = `BMI = ?`;
+    setHeight(0);
+    setWeight(0);
+  };
   return (
     <div className={styles.main}>
       <header className={styles.header}>
         <h1>BMI Calculator</h1>
       </header>
-      <form className={styles.form} onSubmit={calculate}>
+      <form className={styles.form} onReset={reset} onSubmit={calculate}>
         <div>
           <label>Height in cm:</label>
           <input
@@ -44,6 +50,9 @@ const App = () => {
         </div>
         <button type="submit" className={styles.button}>
           Calculate BMI
+        </button>
+        <button type="reset" className={styles.button}>
+          Reset
         </button>
       </form>
       <p className={styles.displayBMI} id="bmi">
