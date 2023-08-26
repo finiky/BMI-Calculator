@@ -40,26 +40,13 @@ const App = () => {
             required
           />
         </div>
-        <button type="submit" className={styles.button}>Calculate BMI</button>
+        <button type="submit" className={styles.button}>
+          Calculate BMI
+        </button>
       </form>
-      <p id="bmi"></p>
-      <div className={styles.information}>
-        <h3>BMI Categories</h3>
-        <ul>
-          <li>
-            <p>Underweight: BMI less than or equal to 18.5</p>
-          </li>
-          <li>
-            <p>Normal weight: BMI between 18.5 and 24.9</p>
-          </li>
-          <li>
-            <p>Overweight: BMI between 25 and 29.9</p>
-          </li>
-          <li>
-            <p>Obesity: BMI of 30 or greater</p>
-          </li>
-        </ul>
-      </div>
+      <p className={styles.displayBMI} id="bmi">
+        BMI is:
+      </p>
     </div>
   );
 };
