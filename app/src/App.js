@@ -1,11 +1,11 @@
 import styles from "./App.module.css";
 import { useState } from "react";
 const App = () => {
-  const [height, setHeight] = useState(0);
-  const [weight, setWeight] = useState(0);
+  const [height, setHeight] = useState(null);
+  const [weight, setWeight] = useState(null);
   const calculate = (e) => {
     e.preventDefault();
-    document.getElementById("bmi").innerHTML = `BMI is: ${(
+    document.getElementById("bmi").innerHTML = `BMI = ${(
       weight /
       (height / 100) ** 2
     ).toFixed(1)}`;
@@ -19,6 +19,7 @@ const App = () => {
         <div>
           <label>Height in cm:</label>
           <input
+            className={styles.input}
             type="number"
             min="1"
             onChange={(e) => {
@@ -31,6 +32,7 @@ const App = () => {
         <div>
           <label>Weight in kg:</label>
           <input
+            className={styles.input}
             type="number"
             min="1"
             onChange={(e) => {
@@ -45,7 +47,7 @@ const App = () => {
         </button>
       </form>
       <p className={styles.displayBMI} id="bmi">
-        BMI is:
+        BMI = ?
       </p>
     </div>
   );
